@@ -1,20 +1,29 @@
 import 'package:chat_app/core/utils/route/app_routes.dart';
 import 'package:chat_app/feature/home/views/pages/home_page.dart';
+import 'package:chat_app/feature/login/login_cubit/login_cubit.dart';
 import 'package:chat_app/feature/login/views/pages/login_page.dart';
+import 'package:chat_app/feature/register/register_cubit/register_cubit.dart';
 import 'package:chat_app/feature/register/view/pages/register_page.dart';
 import 'package:chat_app/feature/settings/views/page/settings_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.loginRoute:
-        return CupertinoPageRoute(builder: (context) => const LoginPage());
+        return CupertinoPageRoute(
+          builder: (context) =>
+              BlocProvider(create: (context) => LoginCubit(), child: const LoginPage()),
+        );
       case AppRoutes.homeRoute:
         return CupertinoPageRoute(builder: (context) => const HomePage());
       case AppRoutes.registerRoute:
-        return CupertinoPageRoute(builder: (context) => const RegisterPage());
+        return CupertinoPageRoute(
+          builder: (context) =>
+              BlocProvider(create: (context) => RegisterCubit(), child: const RegisterPage()),
+        );
       case AppRoutes.settingsRoute:
         return CupertinoPageRoute(builder: (context) => const SettingsPage());
       default:
