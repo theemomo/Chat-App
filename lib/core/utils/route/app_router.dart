@@ -1,6 +1,7 @@
 import 'package:chat_app/core/utils/route/app_routes.dart';
 import 'package:chat_app/feature/home/views/pages/home_page.dart';
 import 'package:chat_app/feature/login/views/pages/login_page.dart';
+import 'package:chat_app/feature/register/view/pages/register_page.dart';
 import 'package:chat_app/feature/settings/views/page/settings_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ class AppRouter {
         return CupertinoPageRoute(builder: (context) => const LoginPage());
       case AppRoutes.homeRoute:
         return CupertinoPageRoute(builder: (context) => const HomePage());
+      case AppRoutes.registerRoute:
+        return CupertinoPageRoute(builder: (context) => const RegisterPage());
       case AppRoutes.settingsRoute:
         return CupertinoPageRoute(builder: (context) => const SettingsPage());
       default:
