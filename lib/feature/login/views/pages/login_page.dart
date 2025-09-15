@@ -19,13 +19,13 @@ class LoginPage extends StatelessWidget {
           // logo
           Center(
             child: CachedNetworkImage(
-              imageUrl: "https://cdn-icons-png.flaticon.com/512/5264/5264565.png",
-              width: size.width * 0.5,
+              imageUrl: "https://cdn-icons-png.flaticon.com/512/5229/5229304.png",
+              width: size.width * 0.3,
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
 
-          SizedBox(height: size.height * 0.01),
+          SizedBox(height: size.height * 0.03),
           // welcome back message
           Text(
             "Welcome back, you've been missed!",
@@ -40,10 +40,10 @@ class LoginPage extends StatelessWidget {
           SizedBox(height: size.height * 0.035),
           // login button
           Button(text: "Login", onTap: () {}),
-          SizedBox(height: size.height * 0.01),
+          SizedBox(height: size.height * 0.02),
           // register now
-          TextButton(
-            onPressed: () {
+          GestureDetector(
+            onTap: () {
               Navigator.of(context).pushNamed(AppRoutes.registerRoute);
             },
             child: Row(
