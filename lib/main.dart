@@ -21,7 +21,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AuthCubit(),
+      create: (context) {
+        final cubit = AuthCubit();
+        cubit.checkAuthStatus();
+        return cubit;
+      },
       child: Builder(
         builder: (context) {
           return BlocBuilder<AuthCubit, AuthState>(
@@ -32,6 +36,7 @@ class MyApp extends StatelessWidget {
                 title: AppConstants.appName,
                 theme: AppTheme.lightTheme,
                 onGenerateRoute: AppRouter().onGenerateRoute,
+                
                 initialRoute: state is AuthSuccess ? AppRoutes.homeRoute : AppRoutes.loginRoute,
               );
             },

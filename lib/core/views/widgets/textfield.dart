@@ -4,13 +4,27 @@ class Textfield extends StatelessWidget {
   final String hint;
   final bool isSecure;
   final TextEditingController controller;
-  const Textfield({super.key, required this.hint, this.isSecure = false, required this.controller, });
+  final FocusNode focusNode;
+  final ValueChanged submitFunc;
+  final TextInputAction inputAction;
+  const Textfield({
+    super.key,
+    required this.hint,
+    this.isSecure = false,
+    required this.controller,
+    required this.focusNode,
+    required this.submitFunc,
+    required this.inputAction
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      child: TextField(
+      child: TextFormField(
+        textInputAction: inputAction,
+        focusNode: focusNode,
+        onFieldSubmitted: submitFunc,
         controller: controller,
         obscureText: isSecure,
         decoration: InputDecoration(
@@ -23,7 +37,9 @@ class Textfield extends StatelessWidget {
           fillColor: Theme.of(context).colorScheme.secondary,
           filled: true,
           hintText: hint,
-          hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Theme.of(context).colorScheme.primary),
+          hintStyle: Theme.of(
+            context,
+          ).textTheme.bodyLarge!.copyWith(color: Theme.of(context).colorScheme.primary),
         ),
       ),
     );
