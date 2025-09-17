@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:chat_app/features/models/message_model.dart';
+import 'package:chat_app/features/chat/models/message_model.dart';
 import 'package:chat_app/features/chat/services/chat_services.dart';
 
 part 'chat_state.dart';

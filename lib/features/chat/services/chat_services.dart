@@ -1,5 +1,5 @@
 import 'package:chat_app/core/utils/api_paths.dart';
-import 'package:chat_app/features/models/message_model.dart';
+import 'package:chat_app/features/chat/models/message_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -13,7 +13,7 @@ class ChatServices {
     // get current user info
     final currentUserEmail = currentUser.email!;
     final currentUserID = currentUser.uid;
-    final String timestamp = Timestamp.now().toString();
+    final Timestamp timestamp = Timestamp.now();
 
     // create new message
     final MessageModel newMessage = MessageModel(

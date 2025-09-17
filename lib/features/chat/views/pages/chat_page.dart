@@ -3,7 +3,7 @@ import 'package:chat_app/core/models/user_model.dart';
 import 'package:chat_app/core/services/auth_services.dart';
 import 'package:chat_app/core/view_models/theme_mode/theme_mode_cubit.dart';
 import 'package:chat_app/features/chat/chat_cubit/chat_cubit.dart';
-import 'package:chat_app/features/models/message_model.dart';
+import 'package:chat_app/features/chat/models/message_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
