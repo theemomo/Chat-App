@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyDrawer(),
-      appBar: AppBar(),
+      appBar: AppBar(title: Text("H O M E"), centerTitle: true),
       body: BlocConsumer<HomeCubit, HomeState>(
         listenWhen: (previous, current) => current is HomeFailure,
         listener: (context, state) {
@@ -57,7 +57,10 @@ class HomePage extends StatelessWidget {
                         ),
 
                         child: ListTile(
-                          title: Text(users[index].email ?? "No Email"),
+                          title: Text(
+                            users[index].email.split("").join(' ').toUpperCase().split('@').first ??
+                                "No Email",
+                          ),
                           leading: Icon(Icons.person),
                         ),
                       ),

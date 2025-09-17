@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-          
+
               SizedBox(height: size.height * 0.03),
               // welcome back message
               Text(
@@ -82,16 +82,22 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-          
+
               // login button
               BlocConsumer<LoginCubit, LoginState>(
                 listenWhen: (previous, current) =>
                     current is LoginSuccessfully || current is LoginFailure,
                 listener: (context, state) {
                   if (state is LoginSuccessfully) {
-                    Navigator.pushNamedAndRemoveUntil(context, AppRoutes.homeRoute, (route) => false);
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      AppRoutes.homeRoute,
+                      (route) => false,
+                    );
                   } else if (state is LoginFailure) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text(state.message)));
                   }
                 },
                 buildWhen: (previous, current) =>
@@ -139,9 +145,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       "New a member? ",
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.primary),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
                     ),
                     Text(
                       "Register Now",
