@@ -1,4 +1,6 @@
+import 'package:chat_app/core/models/user_model.dart';
 import 'package:chat_app/core/utils/route/app_routes.dart';
+import 'package:chat_app/features/chat/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/features/chat/views/pages/chat_page.dart';
 import 'package:chat_app/features/home/home_cubit/home_cubit.dart';
 import 'package:chat_app/features/home/views/pages/home_page.dart';
@@ -38,10 +40,13 @@ class AppRouter {
       case AppRoutes.settingsRoute:
         return CupertinoPageRoute(builder: (context) => const SettingsPage());
       case AppRoutes.chatRoute:
-        final email = settings.arguments as String;
+        final user = settings.arguments as UserModel;
         return CupertinoPageRoute(
           settings: settings,
-          builder: (context) => ChatPage(email: email),
+          builder: (context) => BlocProvider(
+            create: (context) => ChatCubit(),
+            child: ChatPage(user: user),
+          ),
         );
       default:
         return CupertinoPageRoute(

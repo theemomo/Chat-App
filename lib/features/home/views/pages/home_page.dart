@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                       onTap: () {
                         Navigator.of(
                           context,
-                        ).pushNamed(AppRoutes.chatRoute, arguments: users[index].email);
+                        ).pushNamed(AppRoutes.chatRoute, arguments: users[index]);
                       },
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),

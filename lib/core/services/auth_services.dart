@@ -14,7 +14,7 @@ class AuthServices {
       final user = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       // save user info in firestore
       _firestore
-          .collection(ApiPaths.users)
+          .collection(ApiPaths.usersCollection)
           .doc(user.user!.uid)
           .set(UserModel(id: user.user!.uid, email: user.user!.email).toMap());
 
@@ -35,7 +35,7 @@ class AuthServices {
 
       // save user info in firestore
       _firestore
-          .collection(ApiPaths.users)
+          .collection(ApiPaths.usersCollection)
           .doc(user.user!.uid)
           .set(UserModel(id: user.user!.uid, email: user.user!.email).toMap());
 
