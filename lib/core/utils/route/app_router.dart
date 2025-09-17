@@ -1,4 +1,5 @@
 import 'package:chat_app/core/utils/route/app_routes.dart';
+import 'package:chat_app/features/chat/views/pages/chat_page.dart';
 import 'package:chat_app/features/home/home_cubit/home_cubit.dart';
 import 'package:chat_app/features/home/views/pages/home_page.dart';
 import 'package:chat_app/features/login/login_cubit/login_cubit.dart';
@@ -20,8 +21,14 @@ class AppRouter {
         );
       case AppRoutes.homeRoute:
         return CupertinoPageRoute(
-          builder: (context) =>
-              BlocProvider(create: (context) => HomeCubit(), child: const HomePage()),
+          builder: (context) => BlocProvider(
+            create: (context) {
+              final cubit = HomeCubit();
+              cubit.getUsers();
+              return cubit;
+            },
+            child: const HomePage(),
+          ),
         );
       case AppRoutes.registerRoute:
         return CupertinoPageRoute(
@@ -30,6 +37,12 @@ class AppRouter {
         );
       case AppRoutes.settingsRoute:
         return CupertinoPageRoute(builder: (context) => const SettingsPage());
+      case AppRoutes.chatRoute:
+        final email = settings.arguments as String;
+        return CupertinoPageRoute(
+          settings: settings,
+          builder: (context) => ChatPage(email: email),
+        );
       default:
         return CupertinoPageRoute(
           builder: (context) => const Scaffold(body: Center(child: Text("Page Not Found"))),
