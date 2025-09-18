@@ -9,7 +9,7 @@ class MessageModel {
   final String senderEmail;
   final String receiverID;
   final String message;
-  final Timestamp timestamp;
+  final Timestamp? timestamp;
   MessageModel({
     required this.senderID,
     required this.senderEmail,
@@ -24,7 +24,7 @@ class MessageModel {
       'senderEmail': senderEmail,
       'receiverID': receiverID,
       'message': message,
-      'timestamp': timestamp,
+      'timestamp': FieldValue.serverTimestamp(),
     };
   }
 
@@ -34,7 +34,7 @@ class MessageModel {
       senderEmail: map['senderEmail'] as String,
       receiverID: map['receiverID'] as String,
       message: map['message'] as String,
-      timestamp: map['timestamp'] as Timestamp,
+      timestamp: map['timestamp'] != null ? map['timestamp'] as Timestamp : null,
     );
   }
 

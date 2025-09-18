@@ -25,17 +25,4 @@ class ChatCubit extends Cubit<ChatState> {
       }).toList();
     });
   }
-
-  // Stream<List<MessageModel>> getMessages(String userID, String otherUserID) {
-  //   return _chatServices.getMessages(userID, otherUserID).map((snapshot) {
-  //     final messages = snapshot.docs.map((doc) {
-  //       return MessageModel.fromMap(doc.data() as Map<String, dynamic>);
-  //     }).toList();
-
-  //     // sort after mapping
-  //     messages.sort((a, b) => a.timestamp.compareTo(b.timestamp));
-
-  //     return messages;
-  //   });
-  // }
 }

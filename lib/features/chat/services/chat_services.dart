@@ -13,7 +13,7 @@ class ChatServices {
     // get current user info
     final currentUserEmail = currentUser.email!;
     final currentUserID = currentUser.uid;
-    final Timestamp timestamp = Timestamp.now();
+    // final Timestamp timestamp = Timestamp.now();
 
     // create new message
     final MessageModel newMessage = MessageModel(
@@ -21,7 +21,7 @@ class ChatServices {
       senderEmail: currentUserEmail,
       receiverID: receiverID,
       message: message,
-      timestamp: timestamp,
+      timestamp: null
     );
 
     // construct chat room ID for the two users
