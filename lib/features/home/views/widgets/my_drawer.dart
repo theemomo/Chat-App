@@ -8,6 +8,7 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.surface,
       child: Column(
@@ -19,7 +20,7 @@ class MyDrawer extends StatelessWidget {
               child: Icon(
                 Icons.message,
                 color: Theme.of(context).colorScheme.primary,
-                size: MediaQuery.of(context).size.width * 0.2,
+                size: orientation == Orientation.portrait? MediaQuery.of(context).size.width * 0.2 : MediaQuery.of(context).size.height * 0.15,
               ),
             ),
           ),
@@ -49,7 +50,7 @@ class MyDrawer extends StatelessWidget {
           Builder(
             builder: (context) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ListTile(
                   title: Text("L O G O U T"),
                   leading: Icon(Icons.logout, color: Theme.of(context).colorScheme.primary),
