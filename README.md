@@ -1,16 +1,39 @@
-# chat_app
+# Flutter Chat App
 
-A new Flutter project.
+A modern real-time **chat application** built with **Flutter**, using **Cubit** for state management and **Firebase** for backend services.  
+It supports one-to-one messaging, authentication, and real-time updates with a clean and responsive UI.
+
+---
+
+## Features
+
+- **Authentication**
+  - User sign up and login with **Firebase Authentication**
+
+- **Chat Messaging**
+  - Real-time one-to-one conversations
+  - Send and receive **text messages**
+  - Message timestamps and ordering
+
+- **Adaptive UI**
+  - Responsive design for mobile platforms
+
+---
+
+## Tech Stack
+
+- **Flutter**
+- **Cubit (Bloc)**
+- **Firebase Authentication**
+- **Cloud Firestore**
+
+---
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/theemomo/Flutter-News-App.git
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+⭐ If you find this project useful, please star the repository!
